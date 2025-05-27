@@ -1,5 +1,7 @@
 package com.perfulandia.venta.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,7 +20,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 
-
 public class DetalleVenta {
 
     @Id
@@ -27,9 +28,10 @@ public class DetalleVenta {
 
     @ManyToOne
     @JoinColumn(name = "venta_id", nullable = false)
+    @JsonBackReference
     private Venta venta;
 
-    @Column(name ="producto_id", nullable = false)
+    @Column(name = "producto_id", nullable = false)
     private Long productoId;
 
     @Column(nullable = false)
@@ -37,5 +39,5 @@ public class DetalleVenta {
 
     @Column(nullable = false)
     private Double precioUnitario;
-  
+
 }
