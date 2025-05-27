@@ -25,7 +25,6 @@ public class VentaController {
     public Venta crearVenta(@RequestBody Venta venta){
         return ventaService.crearVenta(venta);   
     }
-
      
     @GetMapping("/{id}")
     public Optional<Venta> obtenerVentaPorId(@PathVariable Long id){
